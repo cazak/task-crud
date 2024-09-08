@@ -9,7 +9,7 @@ use yii\data\ArrayDataProvider;
 /**
  * TaskSearch represents the model behind the search form of `common\models\Task`.
  */
-class TaskSearch extends Task
+final class TaskSearch extends Task
 {
     private const string CACHE_NAME = 'tasks_index_cache';
     private const int CACHE_DURATION = 3600;
@@ -26,10 +26,8 @@ class TaskSearch extends Task
      * Creates data provider instance with search query applied
      *
      * @param array $params
-     *
-     * @return ArrayDataProvider
      */
-    public function search($params)
+    public function search($params): ArrayDataProvider
     {
         $this->load($params);
 
