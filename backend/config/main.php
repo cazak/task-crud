@@ -46,6 +46,9 @@ return [
             'rules' => [
             ],
         ],
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],
     ],
     'as access' => [
         'class' => \yii\filters\AccessControl::class,
