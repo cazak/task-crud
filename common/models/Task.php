@@ -67,4 +67,9 @@ class Task extends \yii\db\ActiveRecord
     {
         return TaskStatus::getStatuses()[$this->status];
     }
+
+    public function isExpired(): bool
+    {
+        return $this->status === TaskStatus::Expired->value;
+    }
 }

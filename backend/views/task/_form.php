@@ -24,14 +24,14 @@ use yii\widgets\ActiveForm;
             'clientOptions' => [
                 'changeYear' => true,
                 'changeMonth' => true,
-                'yearRange' => '-50:-12',
+                'minDate' => '+1d',
                 'altFormat' => 'dd-mm-yy',
             ]
         ])
         ->textInput(['placeholder' => 'dd-mm-yyyy']);
     ?>
 
-    <?= $form->field($model, 'status')->dropDownList(TaskStatus::getStatuses()) ?>
+    <?= $form->field($model, 'status')->dropDownList([TaskStatus::Active->value => TaskStatus::Active->name]) ?>
 
     <?= $form->field($model, 'priority')->textInput() ?>
 

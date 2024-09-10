@@ -31,12 +31,10 @@ final class TaskSearch extends Task
     {
         $this->load($params);
 
-        $query = Task::find();
-
         $models = \Yii::$app->cache->get(self::CACHE_NAME);
 
         if ($models === false) {
-            $models = $query->all();
+            $models = Task::find()->all();
 
             \Yii::$app->cache->set(self::CACHE_NAME, $models, self::CACHE_DURATION);
         }

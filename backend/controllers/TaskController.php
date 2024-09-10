@@ -91,6 +91,12 @@ final class TaskController extends Controller
     public function actionUpdate($id)
     {
         $task = $this->findModel($id);
+
+        if ($task->isExpired()) {
+            \Yii::$app->session->setFlash('error', 'This task has expired and cannot be updated.');
+            return $this->redirect(['index']);
+        }
+
         $model = new TaskForm($task);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
